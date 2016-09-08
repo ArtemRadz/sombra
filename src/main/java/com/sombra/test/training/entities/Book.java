@@ -11,14 +11,58 @@ public class Book {
     private byte[] content;
     private int pageCount;
     private String isbn;
-    private long genreId;
-    private long authorId;
     private int publishYear;
-    private long publisherId;
     private byte[] image;
     private String descr;
     private Integer rating;
     private Long voteCount;
+    private Genre genre;
+    private Publisher publisher;
+    private Author author;
+
+    public Book() {
+
+    }
+
+    public Book(long id, String name, byte[] content, int pageCount, String isbn, int publishYear, byte[] image, String descr, Integer rating, Long voteCount, Genre genre, Publisher publisher, Author author) {
+        this.id = id;
+        this.name = name;
+        this.content = content;
+        this.pageCount = pageCount;
+        this.isbn = isbn;
+        this.publishYear = publishYear;
+        this.image = image;
+        this.descr = descr;
+        this.rating = rating;
+        this.voteCount = voteCount;
+        this.genre = genre;
+        this.publisher = publisher;
+        this.author = author;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
+    public Publisher getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(Publisher publisher) {
+        this.publisher = publisher;
+    }
+
+    public Genre getGenre() {
+        return genre;
+    }
+
+    public void setGenre(Genre genre) {
+        this.genre = genre;
+    }
 
     public long getId() {
         return id;
@@ -60,36 +104,12 @@ public class Book {
         this.isbn = isbn;
     }
 
-    public long getGenreId() {
-        return genreId;
-    }
-
-    public void setGenreId(long genreId) {
-        this.genreId = genreId;
-    }
-
-    public long getAuthorId() {
-        return authorId;
-    }
-
-    public void setAuthorId(long authorId) {
-        this.authorId = authorId;
-    }
-
     public int getPublishYear() {
         return publishYear;
     }
 
     public void setPublishYear(int publishYear) {
         this.publishYear = publishYear;
-    }
-
-    public long getPublisherId() {
-        return publisherId;
-    }
-
-    public void setPublisherId(long publisherId) {
-        this.publisherId = publisherId;
     }
 
     public byte[] getImage() {
@@ -131,12 +151,12 @@ public class Book {
 
         Book book = (Book) o;
 
+        if (!descr.equals(book.descr)) return false;
+        if (!genre.equals(book.genre)) return false;
+        if (!publisher.equals(book.publisher)) return false;
         if (id != book.id) return false;
         if (pageCount != book.pageCount) return false;
-        if (genreId != book.genreId) return false;
-        if (authorId != book.authorId) return false;
         if (publishYear != book.publishYear) return false;
-        if (publisherId != book.publisherId) return false;
         if (name != null ? !name.equals(book.name) : book.name != null) return false;
         if (!Arrays.equals(content, book.content)) return false;
         if (isbn != null ? !isbn.equals(book.isbn) : book.isbn != null) return false;
@@ -151,14 +171,14 @@ public class Book {
     @Override
     public int hashCode() {
         int result = (int) (id ^ (id >>> 32));
+        result = 31 * result + author.hashCode();
+        result = 31 * result + genre.hashCode();
+        result = 31 * result + publisher.hashCode();
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + Arrays.hashCode(content);
         result = 31 * result + pageCount;
         result = 31 * result + (isbn != null ? isbn.hashCode() : 0);
-        result = 31 * result + (int) (genreId ^ (genreId >>> 32));
-        result = 31 * result + (int) (authorId ^ (authorId >>> 32));
         result = 31 * result + publishYear;
-        result = 31 * result + (int) (publisherId ^ (publisherId >>> 32));
         result = 31 * result + Arrays.hashCode(image);
         result = 31 * result + (descr != null ? descr.hashCode() : 0);
         result = 31 * result + (rating != null ? rating.hashCode() : 0);
