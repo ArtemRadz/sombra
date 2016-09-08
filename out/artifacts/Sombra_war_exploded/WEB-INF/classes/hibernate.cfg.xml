@@ -12,7 +12,5 @@
     <mapping resource="com.sombra.test.training.entities/Genre.hbm.xml"/>
     <mapping resource="com.sombra.test.training.entities/Publisher.hbm.xml"/>
     <mapping resource="com.sombra.test.training.entities/Vote.hbm.xml"/>
-    <!-- DB schema will be updated if needed -->
-    <!-- <property name="hbm2ddl.auto">update</property> -->
   </session-factory>
 </hibernate-configuration>
