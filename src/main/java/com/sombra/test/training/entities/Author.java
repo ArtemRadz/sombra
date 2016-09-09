@@ -2,13 +2,17 @@ package com.sombra.test.training.entities;
 
 import java.sql.Date;
 
-/**
- * Created by Artem on 08.09.2016.
- */
 public class Author {
     private long id;
     private String fio;
     private Date birthday;
+
+    public Author(String fio) {
+        this.fio = fio;
+    }
+
+    public Author() {
+    }
 
     public long getId() {
         return id;

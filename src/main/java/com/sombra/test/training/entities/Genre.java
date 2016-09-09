@@ -1,8 +1,6 @@
 package com.sombra.test.training.entities;
 
-/**
- * Created by Artem on 08.09.2016.
- */
+
 public class Genre {
     private long id;
     private String name;
@@ -41,5 +39,10 @@ public class Genre {
         int result = (int) (id ^ (id >>> 32));
         result = 31 * result + (name != null ? name.hashCode() : 0);
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }
