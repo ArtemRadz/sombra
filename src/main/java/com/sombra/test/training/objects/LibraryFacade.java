@@ -9,9 +9,11 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component
+@Component("libraryFacade")
 @Scope("singleton")
 public class LibraryFacade {
+
+    private static final String FIELD_CONTENT = "content";
 
     @Autowired
     private BookDAO bookDAO;
@@ -45,5 +47,9 @@ public class LibraryFacade {
                 books = bookDAO.getBooks(new Author(searchCriteria.getText()));
                 break;
         }
+    }
+
+    public byte[] getContent(long id) {
+        return (byte[])bookDAO.getFieldValue(id, FIELD_CONTENT);
     }
 }

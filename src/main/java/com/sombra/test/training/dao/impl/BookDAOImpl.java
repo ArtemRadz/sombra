@@ -74,6 +74,15 @@ public class BookDAOImpl implements BookDAO {
         return books;
     }
 
+    @Transactional
+    @Override
+    public Object getFieldValue(Long id, String fieldName) {
+        Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Book.class);
+        criteria.setProjection(Property.forName(fieldName));
+        criteria.add(Restrictions.eq("id", id));
+        return criteria.uniqueResult();
+    }
+
     private List<Book> createBookList(DetachedCriteria bookListCriteria) {
         Criteria criteria = bookListCriteria.getExecutableCriteria(sessionFactory.getCurrentSession());
         criteria.addOrder(Order.asc("b.name")).setProjection(bookProjection).setResultTransformer(Transformers.aliasToBean(Book.class));

@@ -23,7 +23,7 @@
                 <h:inputText  id="search_string" styleClass="search-text" value="#{searchCriteria.text}"/>
 
                 <p:commandButton id="btnSearch" value="#{msg.search}" styleClass="button" action="searchByText">
-                    <p:ajax execute="@form" render=":booksForm:booksList"/>
+                    <f:ajax execute="@form" render=":booksForm:booksList"/>
                 </p:commandButton>
 
                 <div class="dropdown">
@@ -34,6 +34,7 @@
 
                 <script language="javascript">
                     document.getElementById("search_form:search_string").setAttribute("placeholder","#{msg.search_book}");
+
                 </script>
 
             </h:form>
