@@ -132,7 +132,7 @@ body {
 .item { height:100%; width: 340px; padding-top: 18px; padding-bottom: 18px; overflow: hidden; border: 1px solid #e5e5e5; border-radius: 5px; margin-left: 15px; margin-top: 20px; float: left; }
 .item img {float: left; margin-right: 20px; margin-left: 19px;}
 .item .info {overflow: hidden;}
-.item .book_name {height: 40px;}
+.item .book_name {height: 40px; margin-bottom: 30px;}
 .item .info .title {color: #1091c6; font-size: 18px;}
 .item .info .title:hover {text-decoration: none;}
 .item .info span { color: #000; border-bottom: 1px solid #000; margin-top: 13px; margin-bottom: 13px; display: inline-block; }

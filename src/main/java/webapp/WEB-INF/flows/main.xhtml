@@ -19,7 +19,7 @@
         <h:form id="booksForm" >
 
 
-                <p:dataGrid rowIndexVar="rowIndex" columns="2" lazy="true" var="b" value="${libraryFacade.books}"  id="booksList" styleClass="books_list"  paginator="true" rows="2" paginatorPosition="bottom"
+                <p:dataGrid rowIndexVar="rowIndex" columns="2" lazy="true" var="b" value="${libraryFacade.books}"  id="booksList" styleClass="books_list"  paginator="true" rows="6" paginatorPosition="bottom"
                         rowsPerPageTemplate="2,4,6" paginatorTemplate="{RowsPerPageDropdown} {PageLinks}"  paginatorAlwaysVisible="true" emptyMessage="">
 
 
@@ -53,7 +53,7 @@
                             </h:outputLink>
 
                         </div>
-                        <span style="margin-top: 30px">#{b.author}</span>
+                        <span>#{b.author}</span>
                         <p><strong>#{msg.page_count}:</strong> #{b.pageCount}</p>
                         <p><strong>#{msg.publisher}</strong> #{b.publisher}</p>
                         <p><strong>#{msg.publish_year}</strong> #{b.publishYear} г.</p>
