@@ -2,10 +2,8 @@ package com.sombra.test.training.entities;
 
 import java.util.Arrays;
 
-/**
- * Created by Artem on 08.09.2016.
- */
 public class Book {
+    private boolean edit;
     private long id;
     private String name;
     private byte[] content;
@@ -142,6 +140,14 @@ public class Book {
 
     public void setVoteCount(Long voteCount) {
         this.voteCount = voteCount;
+    }
+
+    public boolean isEdit() {
+        return edit;
+    }
+
+    public void setEdit(boolean edit) {
+        this.edit = edit;
     }
 
     @Override

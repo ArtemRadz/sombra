@@ -1,14 +1,19 @@
 package com.sombra.test.training.dao.impl;
 
+import com.fasterxml.classmate.AnnotationConfiguration;
 import com.sombra.test.training.dao.interfaces.BookDAO;
 import com.sombra.test.training.entities.Author;
 import com.sombra.test.training.entities.Book;
 import com.sombra.test.training.entities.Genre;
 import org.hibernate.Criteria;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 import org.hibernate.criterion.*;
+import org.hibernate.query.Query;
 import org.hibernate.transform.Transformers;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate4.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,7 +24,6 @@ public class BookDAOImpl implements BookDAO {
 
     @Autowired
     private SessionFactory sessionFactory;
-
     private ProjectionList bookProjection;
 
     public BookDAOImpl() {
@@ -81,6 +85,14 @@ public class BookDAOImpl implements BookDAO {
         criteria.setProjection(Property.forName(fieldName));
         criteria.add(Restrictions.eq("id", id));
         return criteria.uniqueResult();
+    }
+
+    @Transactional
+    @Override
+    public void deleteBook(Long id) {
+        Query query = sessionFactory.getCurrentSession().createQuery("delete from Book where id = :id");
+        query.setParameter("id", id);
+        query.executeUpdate();
     }
 
     private List<Book> createBookList(DetachedCriteria bookListCriteria) {

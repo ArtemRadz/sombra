@@ -15,4 +15,5 @@ public interface BookDAO {
     List<Book> getBooks(Genre genre);
     List<Book> getBooks(Character letter);
     Object getFieldValue(Long id, String fieldName);
+    void deleteBook(Long id);
 }
