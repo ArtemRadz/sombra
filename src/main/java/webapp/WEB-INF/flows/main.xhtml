@@ -80,10 +80,15 @@
                         <p class="edit">#{msg.edit}</p>
                     </p:commandLink>
 
-                    <p:commandLink styleClass="delete-button" value="#{request.contextPath}/DeleteBook" title="#{msg.delete_book}" type="button" rendered="#{sec:areAllGranted('ROLE_ADMIN')}">
+
+                    <h:outputLink styleClass="delete-button" value="#{request.contextPath}/DeleteBook" title="#{msg.delete_book}" type="button" rendered="#{sec:areAllGranted('ROLE_ADMIN')}">
                         <p class="delete">#{msg.delete}</p>
                         <f:param name="selectedBook" value="#{b.id}"/>
-                    </p:commandLink>
+                    </h:outputLink>
+                    <!--<p:commandLink styleClass="delete-button" value="#{request.contextPath}/DeleteBook" title="#{msg.delete_book}" type="button" rendered="#{sec:areAllGranted('ROLE_ADMIN')}">-->
+                        <!--<p class="delete">#{msg.delete}</p>-->
+                        <!--<f:param name="selectedBook" value="#{b.id}"/>-->
+                    <!--</p:commandLink>-->
 
 
                 </div>
